@@ -17,9 +17,18 @@ const App = () => {
   //Map random numbers to Die component
   const diceNumbers = dice.map((numbers) => <Die value={numbers} />);
 
+  //click button generate random numbers
+  const handleClick = () => {
+    return setDice(allNewDice);
+  };
+
   return (
     <main>
       <div className="container">{diceNumbers}</div>
+      <button className="roll" onClick={handleClick}>
+        {" "}
+        Roll{" "}
+      </button>
     </main>
   );
 };
