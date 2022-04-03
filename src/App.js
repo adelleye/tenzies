@@ -12,10 +12,10 @@ const App = () => {
   };
 
   //States
-  const [die, setDie] = useState(allNewDice);
+  const [dice, setDice] = useState(allNewDice);
 
   //Map random numbers to Die component
-  const diceNumbers = die.map((numbers) => <Die value={numbers} />);
+  const diceNumbers = dice.map((numbers) => <Die value={numbers} />);
 
   return (
     <main>
