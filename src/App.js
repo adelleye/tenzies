@@ -2,6 +2,18 @@ import React from "react";
 import Die from "./components/Die";
 
 const App = () => {
+  //Generate Random numbers between 1 & 6
+  const allNewDice = () => {
+    const randomNumbers = [];
+
+    for (let i = 0; i < 9; i++) {
+      randomNumbers[i] = Math.floor(Math.random() * 6) + 1;
+      //randomNumbers.push(Math.floor(Math.random() * 6) + 1)
+    }
+    return randomNumbers;
+  };
+  console.log(allNewDice());
+
   return (
     <main>
       <div className="container">
