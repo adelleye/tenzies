@@ -1,8 +1,12 @@
 import React from "react";
 
 const Die = (props) => {
+  const styles = {
+    backgroundColor: props.holdDat ? "#59E391" : "white",
+  };
+
   return (
-    <div className="die">
+    <div className="die" style={styles}>
       <p>{props.value}</p>
     </div>
   );
