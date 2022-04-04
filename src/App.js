@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Die from "./components/Die";
+import { nanoid } from "nanoid";
 
 const App = () => {
   const allNewDice = () => {
     const diceElements = [];
     for (let i = 0; i < 10; i++) {
       diceElements.push({
+        id: nanoid(),
         //Generate Random numbers between 1 & 6
         value: Math.floor(Math.random() * 6) + 1,
         isHeld: false,
