@@ -2,20 +2,23 @@ import React, { useState } from "react";
 import Die from "./components/Die";
 
 const App = () => {
-  //Generate Random numbers between 1 & 6
   const allNewDice = () => {
-    const randomNumbers = [];
+    const diceElements = [];
     for (let i = 0; i < 10; i++) {
-      randomNumbers.push(Math.floor(Math.random() * 6) + 1);
+      diceElements.push({
+        //Generate Random numbers between 1 & 6
+        value: Math.floor(Math.random() * 6) + 1,
+        isHeld: false,
+      });
     }
-    return randomNumbers;
+    return diceElements;
   };
 
   //States
   const [dice, setDice] = useState(allNewDice);
 
   //Map random numbers to Die component
-  const diceNumbers = dice.map((numbers) => <Die value={numbers} />);
+  const diceNumbers = dice.map((numbers) => <Die value={numbers.value} />);
 
   //click button generate random numbers
   const handleClick = () => {
