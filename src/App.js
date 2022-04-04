@@ -20,7 +20,7 @@ const App = () => {
   const [dice, setDice] = useState(allNewDice);
 
   //Map random numbers to Die component
-  const diceNumbers = dice.map((numbers) => <Die value={numbers.value} />);
+  const diceNumbers = dice.map((die) => <Die key={die.id} value={die.value} />);
 
   //click button generate random numbers
   const handleClick = () => {
