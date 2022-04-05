@@ -19,9 +19,32 @@ const App = () => {
   //States
   const [dice, setDice] = useState(allNewDice);
 
+  //Hold Dice
+  const holdDice = (id) => {
+    console.log(id);
+
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        if (id === die.id) {
+          return {
+            ...die,
+            isHeld: !die.isHeld,
+          };
+        } else {
+          return die;
+        }
+      })
+    );
+  };
+
   //Map random numbers to Die component
   const diceNumbers = dice.map((die) => (
-    <Die key={die.id} value={die.value} holdDat={die.isHeld} />
+    <Die
+      key={die.id}
+      value={die.value}
+      holdDat={die.isHeld}
+      handleClick={() => holdDice(die.id)}
+    />
   ));
 
   //click button generate random numbers
@@ -33,8 +56,7 @@ const App = () => {
     <main>
       <div className="container">{diceNumbers}</div>
       <button className="roll" onClick={handleClick}>
-        {" "}
-        Roll{" "}
+        Roll
       </button>
     </main>
   );
