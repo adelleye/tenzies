@@ -31,6 +31,7 @@ const App = () => {
 
     if (isSameValue && isAllHeld) {
       console.log("You win!");
+      setTenzies(true);
     } else {
       console.log("Not yet!");
     }
@@ -84,7 +85,7 @@ const App = () => {
       </p>
       <div className="container">{diceNumbers}</div>
       <button className="roll" onClick={handleClick}>
-        Roll
+        {tenzies ? "New Game" : "Roll"}
       </button>
     </main>
   );
