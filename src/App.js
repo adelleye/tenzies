@@ -21,7 +21,19 @@ const App = () => {
   const [tenzies, setTenzies] = React.useState(false);
 
   useEffect(() => {
-    console.log("Dice state changed");
+    //Check if every value is the same
+    const isSameValue = dice.every((die) => die.value === dice[0].value);
+    console.log(isSameValue);
+
+    //Check if all dice are held
+    const isAllHeld = dice.every((die) => die.isHeld);
+    console.log(isAllHeld);
+
+    if (isSameValue && isAllHeld) {
+      console.log("You win!");
+    } else {
+      console.log("Not yet!");
+    }
   }, [dice]);
 
   //Hold Dice
