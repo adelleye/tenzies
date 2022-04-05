@@ -49,11 +49,22 @@ const App = () => {
 
   //click button generate random numbers
   const handleClick = () => {
-    return setDice(allNewDice);
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.isHeld
+          ? die
+          : { ...die, value: Math.ceil(Math.random() * 6), id: nanoid() };
+      })
+    );
   };
 
   return (
     <main>
+      <h1 className="title">Tenzies</h1>
+      <p className="instructions">
+        Roll until all dice are the same. Click each die to freeze it at its
+        current value between rolls.
+      </p>
       <div className="container">{diceNumbers}</div>
       <button className="roll" onClick={handleClick}>
         Roll
