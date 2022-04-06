@@ -7,7 +7,7 @@ const Die = (props) => {
 
   return (
     <div className="die" style={styles} onClick={props.handleClick}>
-      <p>{props.value}</p>
+      <p className="die--numbers">{props.value}</p>
     </div>
   );
 };

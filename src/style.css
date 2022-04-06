@@ -107,6 +107,12 @@ main {
   cursor: pointer;
 }
 
+.die--numbers {
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  font-size: 20.59px;
+}
+
 .button {
   margin-top: 60px;
   padding: 8px 20px;
