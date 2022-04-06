@@ -93,14 +93,14 @@ const App = () => {
       <h1 className="title">Tenzies</h1>
       <p className="instructions">
         Roll until all dice are the same. Click each die to freeze it at its
-        current value between rolls.
+        current value between rolls. Least number of rolls wins!
       </p>
       <div className="container">{diceNumbers}</div>
       <button className="button" onClick={tenzies ? newGame : handleClick}>
         {tenzies ? "New Game" : "Roll"}
       </button>
       <p className="numberOfRolls">
-        {tenzies ? `It took you ${numberOfRolls} rolls to win!` : ""}
+        {tenzies ? `Nice! It took you ${numberOfRolls} rolls to win!` : ""}
       </p>
     </main>
   );
