@@ -21,6 +21,7 @@ const App = () => {
   //States
   const [dice, setDice] = useState(allNewDice);
   const [tenzies, setTenzies] = React.useState(false);
+  const [numberOfRolls, setNumberOfRolls] = React.useState(0);
 
   useEffect(() => {
     //Check if every value is the same
@@ -76,12 +77,15 @@ const App = () => {
           : { ...die, value: Math.ceil(Math.random() * 6), id: nanoid() };
       })
     );
+    setNumberOfRolls((prevNumberOfRolls) => (prevNumberOfRolls += 1));
   };
 
+  //Reset game
   function newGame() {
     console.log("New game");
     setTenzies(false);
     setDice(allNewDice());
+    setNumberOfRolls(0);
   }
 
   return (
@@ -95,6 +99,9 @@ const App = () => {
       <button className="button" onClick={tenzies ? newGame : handleClick}>
         {tenzies ? "New Game" : "Roll"}
       </button>
+      <p className="numberOfRolls">
+        {tenzies ? `It took you ${numberOfRolls} rolls to win!` : ""}
+      </p>
     </main>
   );
 };
