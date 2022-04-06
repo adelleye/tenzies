@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Die from "./components/Die";
 import { nanoid } from "nanoid";
 
+//import Confetti from "react-confetti";
+
 const App = () => {
   const allNewDice = () => {
     const diceElements = [];
@@ -76,6 +78,12 @@ const App = () => {
     );
   };
 
+  function newGame() {
+    console.log("New game");
+    setTenzies(false);
+    setDice(allNewDice());
+  }
+
   return (
     <main>
       <h1 className="title">Tenzies</h1>
@@ -84,7 +92,7 @@ const App = () => {
         current value between rolls.
       </p>
       <div className="container">{diceNumbers}</div>
-      <button className="roll" onClick={handleClick}>
+      <button className="button" onClick={tenzies ? newGame : handleClick}>
         {tenzies ? "New Game" : "Roll"}
       </button>
     </main>
