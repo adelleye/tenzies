@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Die from "./components/Die";
 import { nanoid } from "nanoid";
-
-import { confetti } from "tsparticles-preset-confetti";
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 const App = () => {
+  //Get height and width
+  const { width, height } = useWindowSize();
+
   const allNewDice = () => {
     const diceElements = [];
     for (let i = 0; i < 10; i++) {
@@ -90,23 +93,20 @@ const App = () => {
 
   return (
     <main>
-      {tenzies &&
-        confetti("tsparticles", {
-          angle: 90,
-          count: 500,
-          position: { x: 50, y: 100 },
-          spread: 360,
-          startVelocity: 100,
-          decay: 0.9,
-          gravity: 0.8,
-          drift: 0,
-          ticks: 2000,
-          colors: ["#ffcfd2", "#8eecf5", "b9fbc0", "fbf8cc", "fde4cf"],
-          shapes: ["square", "circle"],
-          scalar: 0.75,
-          zIndex: 2000,
-          disableForReducedMotion: true,
-        })}
+      {tenzies && (
+        <Confetti
+          width={width}
+          height={height}
+          colors={[
+            "#ffcfd2",
+            "#8eecf5",
+            "#b9fbc0",
+            "#fbf8cc",
+            "#fde4cf",
+            "#ff0a54",
+          ]}
+        />
+      )}
 
       <h1 className="title">Tenzies</h1>
       <p className="instructions">
@@ -125,20 +125,3 @@ const App = () => {
 };
 
 export default App;
-
-{
-  /* count: 250,
-  preset: "confetti",
-          position: { x: 50, y: 100 },
-          spread: 3000,
-          startVelocity: 60,
-          decay: 0.9,
-          gravity: 0.1,
-          drift: 0,
-          ticks: 200,
-          colors: ["#1E00FF", "#FF0061", "#E1FF00", "#00FF9E"],
-          shapes: ["heart", "square", "circle"],
-          scalar: 1,
-          zIndex: 2000,
-          disableForReducedMotion: true, */
-}
